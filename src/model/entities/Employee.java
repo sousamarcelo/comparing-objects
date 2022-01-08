@@ -1,6 +1,6 @@
-package entities;
+package model.entities;
 
-public class Employee {
+public class Employee implements Comparable<Employee> {
 	
 	private String name;
 	private Double salary;
@@ -28,5 +28,16 @@ public class Employee {
 	
 	public void setSalary(double salary) {
 		this.salary = salary;
+	}
+	
+	@Override
+	public String toString() {
+		return name + ", " + String.format("%.2f", salary);
+	}
+
+	@Override
+	public int compareTo(Employee other) {
+		//return name.compareTo(other.getName());
+		return - salary.compareTo(other.getSalary()); //<---- Maior salario
 	}
 }
